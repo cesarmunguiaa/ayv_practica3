@@ -12,7 +12,7 @@ st.set_page_config(
 
 # ENCABEZADO DE LA PRÁCTICA
 st.title("🏀 Dashboard de Rendimiento NBA")
-st.markdown(f"**Práctica desarrollada por: García Juaréz Dayan y Munguia Aguilera César Raúl**")
+st.markdown(f"**Práctica desarrollada por: García Juaréz Dayan y Munguia Aguilera César Raúl. Grupo 5AM1**")
 st.markdown("---")
 
 # CARGA DE DATOS
