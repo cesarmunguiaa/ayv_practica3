@@ -3,19 +3,19 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 
-# --- 1. CONFIGURACIÓN INICIAL ---
+# CONFIGURACIÓN INICIAL
 st.set_page_config(
     page_title="NBA Dashboard", 
     page_icon="🏀", 
     layout="wide"
 )
 
-# --- 2. ENCABEZADO DE LA PRÁCTICA ---
+# ENCABEZADO DE LA PRÁCTICA
 st.title("🏀 Dashboard de Rendimiento NBA")
 st.markdown(f"**Práctica desarrollada por: García Juaréz Dayanara y Munguia Aguilera César Raúl**")
 st.markdown("---")
 
-# --- 3. CARGA DE DATOS ---
+# CARGA DE DATOS
 @st.cache_data
 def load_nba_data():
     """Carga y prepara el dataset de la NBA."""
@@ -25,7 +25,7 @@ def load_nba_data():
 
 nba_data = load_nba_data()
 
-# --- 4. BARRA LATERAL (FILTROS) ---
+# BARRA LATERAL
 st.sidebar.header("Filtros de Búsqueda")
 
 # Filtro de Año
@@ -41,8 +41,7 @@ target_team = st.sidebar.selectbox("🏀 Selecciona el Equipo:", available_teams
 game_type_options = ["Temporada Regular", "Playoffs", "Ambos"]
 target_game_type = st.sidebar.pills("🏆 Tipo de juegos:", game_type_options, default="Ambos")
 
-# --- 5. LÓGICA DE PROCESAMIENTO ---
-# Construcción de la condición de filtrado
+# LÓGICA DE PROCESAMIENTO
 filter_condition = (nba_data['year_id'] == target_year) & (nba_data['team_id'] == target_team)
 
 if target_game_type == "Temporada Regular":
@@ -64,7 +63,7 @@ team_season_data['cumulative_losses'] = team_season_data['loss_indicator'].cumsu
 team_season_data = team_season_data.reset_index(drop=True)
 team_season_data['game_number'] = team_season_data.index + 1
 
-# --- 6. VISUALIZACIONES ---
+# VISUALIZACIONES
 st.subheader(f"Análisis de Temporada: {target_team} ({target_year})")
 
 COLOR_WIN = "#2E7D32"
